@@ -80,3 +80,24 @@ select {
     background-color: #ffffff;
     /* White background */
 }
+
+/* Copy button styles */
+.copy-btn {
+    background: none;
+    border: none;
+    color: #9ca3af;
+    /* gray-400 */
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.copy-btn:hover {
+    color: #ffffff;
+}
+
+/* Chart container styles */
+.chart-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+}
