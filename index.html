@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Currency Converter</title>
+    <!-- Tailwind CSS for utility classes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white">
+
+    <!-- Canvas for 3D background -->
+    <canvas id="bg-canvas"></canvas>
+
+    <div class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-md mx-auto">
+            <!-- Main converter card -->
+            <div class="glass-card p-8">
+                <h1 class="text-3xl font-bold text-center mb-2">Currency Converter</h1>
+                <p class="text-center text-gray-300 mb-6">Real-time exchange rates</p>
+
+                <div class="space-y-4">
+                    <!-- Amount Input -->
+                    <div>
+                        <label for="amount" class="block text-sm font-medium text-gray-300">Amount</label>
+                        <input type="number" id="amount" name="amount" value="1" class="mt-1 block w-full bg-white/10 border-transparent rounded-md shadow-sm py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    </div>
+
+                    <!-- Currency Selection Row -->
+                    <div class="flex items-end space-x-2">
+                        <!-- From Currency -->
+                        <div class="flex-1">
+                            <label for="from-currency" class="block text-sm font-medium text-gray-300">From</label>
+                            <div class="mt-1 flex items-center bg-white/10 rounded-md focus-within:ring-2 focus-within:ring-indigo-500">
+                                <img id="from-flag" src="" alt="from flag" class="h-6 w-8 ml-3 rounded-sm object-cover">
+                                <select id="from-currency" name="from-currency" class="currency-select block w-full bg-transparent border-transparent py-3 px-2 text-white focus:outline-none">
+                                    <!-- Options populated by JS -->
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Swap Button -->
+                        <button id="swap-button" class="swap-btn p-3 bg-indigo-600 hover:bg-indigo-700 rounded-full text-white shadow-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                            </svg>
+                        </button>
+                        
+                        <!-- To Currency -->
+                        <div class="flex-1">
+                            <label for="to-currency" class="block text-sm font-medium text-gray-300">To</label>
+                             <div class="mt-1 flex items-center bg-white/10 rounded-md focus-within:ring-2 focus-within:ring-indigo-500">
+                                <img id="to-flag" src="" alt="to flag" class="h-6 w-8 ml-3 rounded-sm object-cover">
+                                <select id="to-currency" name="to-currency" class="currency-select block w-full bg-transparent border-transparent py-3 px-2 text-white focus:outline-none">
+                                    <!-- Options populated by JS -->
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Result Display -->
+                <div id="result-container" class="mt-8 text-center">
+                     <div id="loader" class="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mx-auto mb-4" style="display: none;"></div>
+                    <p id="result-text" class="text-2xl font-semibold"></p>
+                    <p id="last-updated" class="text-xs text-gray-400 mt-1"></p>
+                </div>
+                 <div id="error-message" class="mt-4 text-center text-red-400 font-medium" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
